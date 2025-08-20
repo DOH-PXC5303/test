@@ -151,7 +151,7 @@ is producing the correct results. Additionally, a correctly structured `tests/`
 directory will be beneficial. Below are components to a test suite that can be 
 considered "bare minimum".
 
-How to use it:
+### How to use it
 - Unit Tests (`tests/unit/`): Tests for individual functions or classes in 
   isolation.
   - Mirror your src/ directory structure to make tests easy to find
@@ -174,17 +174,23 @@ pytest
 ```
 ```bash
 # Running individual tests files
-pytest tests/unit/example_test_file.py
+pytest tests/unit/example_file_test.py
 ```
 ```bash
 # Running individual tests within a test file
-pytest tests/unit/example_test_file.py::example_test
+pytest tests/unit/example_file_test.py::test_example
 ```
 
 Note: Depending on the project end-to-end (e2e) tests may be beneficial in 
 addition to integration tests.
 
-Best practice: Run tests before committing changes to ensure you haven't broken anything. As part of the run-tests.yaml all tests should automatically run as 
+### Naming conventions
+- Test files must be named as `test_*.py` or `*_test.py`
+- Individual test methods/functions should be named as `test_*`
+- Test classes (without an `__init__` method) should be named `Test*` and test methods/functions within the class as `test_*` 
+
+### Best practices
+Run tests before committing changes to ensure you haven't broken anything. As part of the run-tests.yaml all tests should automatically run as 
 part of a newly created pull request. However, it is still good practice to run 
 tests prior to each commit. Add new tests when you add new features. Keep 
 datasets appropriately sized for their purpose.
