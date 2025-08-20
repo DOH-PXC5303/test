@@ -1,0 +1,18 @@
+name: Validate Commit Messages
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+  push: # Run on all pushes
+jobs:
+  validate-commit-message:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check commit message
+        if: github.event_name == 'push'
+        run: |
+          echo "${{ github.event.head_commit.message }}" | grep -E '^(feat|fix|docs|style|refactor|test|chore|perf|build|ci|revert|release):'
+      - name: Check PR title
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "${{ github.event.pull_request.title }}" | grep -E '^(feat|fix|docs|style|refactor|test|chore|perf|build|ci|revert|release):'

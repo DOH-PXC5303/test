@@ -1,0 +1,31 @@
+name: Prepare Release
+on:
+  pull_request:
+    types: [closed]
+jobs:
+  prepare-release:
+    if: github.event_name == 'pull_request' && github.event.pull_request.merged == true && contains(github.head_ref, 'release/') && github.base_ref == 'main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+     
+      - name: Extract version from branch name
+        id: version
+        run: |
+          BRANCH_NAME=${{ github.head_ref }}
+          VERSION=$(echo $BRANCH_NAME | grep -oP 'release/\K.*')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          name: Release v${{ steps.version.outputs.version }}
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

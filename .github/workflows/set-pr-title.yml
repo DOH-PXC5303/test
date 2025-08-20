@@ -1,0 +1,48 @@
+name: Set PR Title from Branch
+
+# Run when a pull request is opened
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  set-pr-title:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set PR Title Based on Branch Name
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pr = context.payload.pull_request;
+            const branchName = pr.head.ref;
+            
+            // Extract meaningful information from branch name
+            // Example: "feature/generate-an-example" → "feature: generate an example"
+            let newTitle = branchName;
+            
+            // Handle prefixes with slashes (feature/, fix/, etc.)
+            const prefixMatch = branchName.match(/^(feature|fix|docs|style|refactor|test|chore|perf|build|ci|revert|release)\/(.+)$/);
+            
+            if (prefixMatch) {
+              const prefix = prefixMatch[1];
+              const restOfBranch = prefixMatch[2];
+              
+              // Convert hyphens to spaces
+              const cleanTitle = restOfBranch.replace(/-/g, ' ');
+              
+              // Format according to conventional commits
+              newTitle = `${prefix}: ${cleanTitle}`;
+            }
+            
+            // Only update if the title doesn't already match our convention
+            if (pr.title !== newTitle) {
+              github.rest.pulls.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number,
+                title: newTitle
+              });
+              
+              console.log(`Updated PR title from "${pr.title}" to "${newTitle}"`);
+            }
