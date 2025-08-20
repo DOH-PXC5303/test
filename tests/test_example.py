@@ -8,13 +8,13 @@ def data():
 # ---- tests ---- #
 
 # list comparison
-def example_test(data):
+def test_example(data):
     """Test equality"""
     expected_data = ['coriander != cilantro', 'green onion == scallion']
     assert all([element in data for element in expected_data])
 
 # element exclusion
-def example_test2(data):
+def test_example2(data):
     """Test exclusion"""
     undesired_data = ['garbanzo > chickpea', 'filbert > hazlenut']
     assert all([element not in data for element in undesired_data])
