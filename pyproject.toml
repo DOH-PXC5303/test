@@ -1,0 +1,13 @@
+[project]
+name = "your-project-name-here"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "polars>=1.32.0",
+    "wadoh-raccoon",
+]
+
+[tool.uv.sources]
+wadoh-raccoon = { git = "https://github.com/NW-PaGe/wadoh_raccoon.git" }
