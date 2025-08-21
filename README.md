@@ -302,6 +302,95 @@ Follow semantic versioning (MAJOR.MINOR.PATCH):
 - Tests must pass before merges are allowed
 - Each release should have proper documentation of changes
 
+# Package Dependency Management
+This template is set up with infrastructure needed to use [UV](https://docs.astral.sh/uv/) for package and project management. You will need `UV` installed on your machine before using it.
+
+## Setup
+### Installation
+You can use a standalone installer using the commands below, or download `UV` directly from PyPi with pip/pipx. Below are commonly used methods for installation. See the [official documentation](https://docs.astral.sh/uv/getting-started/installation/) for a full list of installation methods.
+  - Windows:  
+    ```powershell
+    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+    ```  
+  - Linux/macOS (with curl):
+    ```bash
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    ```
+  - Linux/macOS (with wget):
+    ```bash
+    wget -qO- https://astral.sh/uv/install.sh | sh
+    ```
+  - PyPi:
+    ```
+    pip install uv
+    ```
+After installing, you should try to run this command in your terminal to check that it is available.
+```bash
+uv
+```
+If you have trouble, you may need to add the installation directory to your PATH.
+
+### Project Environment
+After `UV` is installed and available for use from your terminal, the next step is to create a virtual environment. Navigate to your project folder as the current directory and run [this command](https://docs.astral.sh/uv/reference/cli/#uv-venv)
+```bash
+uv venv
+```
+This will create a `.venv` directory within your project directory, which includes files necessary to use and manage a virtual environment as well as a `.gitignore` to exclude the environment from git tracking.  
+
+Finally, activate the newly created virtual environment by running either of these commands
+- Linux/macOS:
+  ```bash
+  source .venv/Scripts/activate
+  ```
+- Windows:
+  ```powershell
+  .venv\Scripts\activate
+  ```
+
+### Syncing
+The last step in intial set up is to sync your virtual environment with the existing `uv.lock`. Do this by running the following command
+```bash
+uv sync
+```
+A handful of packages should be installed: those used as a standard by DIQA like [polars](https://github.com/pola-rs/polars) and [wadoh_raccoon](https://github.com/NW-PaGe/wadoh_raccoon), as well as their dependencies.
+
+## Management
+See documentation on [managing dependencies](https://docs.astral.sh/uv/concepts/projects/dependencies/) and [locking and syncing](https://docs.astral.sh/uv/concepts/projects/sync/) for full details.
+
+### Adding/removing dependencies
+- Packages used in a project, and their dependencies, should be added to `pyproject.toml` AND `uv.lock` to maintain a clean and reproducible environment. This is done by using the `add` command.
+  ```bash
+  uv add wadoh_raccoon
+  ```
+- You can also specify exact versions or bounds
+  ```bash
+  uv add "wadoh_racoon>=1.0.0"
+  ```
+- Sources can be specified for packages outside of public package registries (i.e. PyPi).
+  ```bash
+  uv add "wadoh_raccoon @ git+https://github.com/NW-PaGe/wadoh_raccoon"
+  ```
+- Existing requirements files can be imported using the `-r` option
+  ```bash
+  uv add -r requirements.txt
+  ```
+- Removing dependencies can be done simply by using `remove` and specifying the dependency name
+  ```bash
+  uv remove wadoh_raccoon
+  ```
+
+### Updating versions
+Locking (and syncing) is generally automatically handled by UV. Locking is required, however, when updating packages from previously-recorded versions.  
+
+- To upgrade a single package to the latest version, while retaining the locked versions of all other packages:
+  ```bash
+  uv lock --upgrade-package wadoh_raccoon
+  ```
+- To upgrade a single package to a specific version:
+  ```
+  uv lock --upgrade-package wadoh_raccoon==2.0.0
+  ```
+
 # Contact
 This repository is maintained by the Data Integration and Quality Assurance (DIQA) - Sequencing Team
 - doh.cds.genseqsurvdq@doh.wa.gov
