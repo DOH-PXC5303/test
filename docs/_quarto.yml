@@ -1,0 +1,70 @@
+project:
+  type: website
+
+format:
+  html:
+    toc: true
+    theme: 
+      light: flatly
+      dark: darkly
+    respect-user-color-scheme: true
+    css:
+      - reference/_styles-quartodoc.css
+    grid:
+      sidebar-width: 300px
+      body-width: 900px
+      margin-width: 300px
+      gutter-width: 1.5rem
+
+execute: 
+  freeze: auto
+
+# tell quarto to read the generated sidebar
+metadata-files:
+  - reference/_sidebar.yml
+
+quartodoc:
+  # the name used to import the package you want to create reference docs for
+  package: null
+  source_dir: ../src
+  renderer:
+    style: markdown
+    table_style: description-list
+    show_signature_annotations: true
+    display_name: relative
+  # write sidebar and style data
+  sidebar: reference/_sidebar.yml
+  css: reference/_styles-quartodoc.css
+
+  sections:
+    - title: Some functions
+      desc: Functions to inspect docstrings.
+      package: src
+      contents:
+        # the functions being documented in the package.
+        # you can refer to anything: class methods, modules, etc..
+        - example
+
+website:
+  # Add your project title here:
+  title: My project
+  # Add your project description here:
+  description: "Documentation for my project"
+  search: true
+  # Edit the repo name here:
+  repo-url: https://github.com/NW-PaGe/repo-name
+  repo-actions: [source, edit, issue]
+  navbar:
+    left:
+      - text: "Home"
+        file: index.qmd
+      - text: "API"
+        file: reference/index.qmd
+    right:
+      # Edit the repo name here:
+      - icon: github
+        href: https://github.com/NW-PaGe/repo-name
+        aria-label: GitHub
+      - icon: tree-fill
+        href: https://nwpage.org/
+        aria-label: NW-PaGe

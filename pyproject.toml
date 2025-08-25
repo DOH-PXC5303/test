@@ -11,3 +11,9 @@ dependencies = [
 
 [tool.uv.sources]
 wadoh-raccoon = { git = "https://github.com/NW-PaGe/wadoh_raccoon.git" }
+
+[dependency-groups]
+dev = [
+    "quarto>=0.1.0",
+    "quartodoc>=0.11.1",
+]
