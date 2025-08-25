@@ -12,6 +12,11 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Install Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: '1.4.550'
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -25,11 +30,6 @@ jobs:
 
       - name: Install the project
         run: uv sync --locked --all-extras --dev
-
-      - name: Install Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-        with:
-          version: '1.4.550'
 
       - name: Build Quartodoc API docs
         run: quartodoc build --config docs/_quarto.yml
