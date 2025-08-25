@@ -1,0 +1,62 @@
+[
+  {
+    "objectID": "reference/index.html",
+    "href": "reference/index.html",
+    "title": "Function reference",
+    "section": "",
+    "text": "Functions to inspect docstrings.\n\n\n\nexample",
+    "crumbs": [
+      "API",
+      "Function reference"
+    ]
+  },
+  {
+    "objectID": "reference/index.html#some-functions",
+    "href": "reference/index.html#some-functions",
+    "title": "Function reference",
+    "section": "",
+    "text": "Functions to inspect docstrings.\n\n\n\nexample",
+    "crumbs": [
+      "API",
+      "Function reference"
+    ]
+  },
+  {
+    "objectID": "process.html",
+    "href": "process.html",
+    "title": "My project",
+    "section": "",
+    "text": "[Temp example file]"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Index",
+    "section": "",
+    "text": "This is a Quarto page"
+  },
+  {
+    "objectID": "reference/example.html",
+    "href": "reference/example.html",
+    "title": "example",
+    "section": "",
+    "text": "example",
+    "crumbs": [
+      "API",
+      "Some functions",
+      "example"
+    ]
+  },
+  {
+    "objectID": "reference/example.html#functions",
+    "href": "reference/example.html#functions",
+    "title": "example",
+    "section": "Functions",
+    "text": "Functions\n\n\n\nName\nDescription\n\n\n\n\nadd\nAdd an integer and a float\n\n\n\n\nadd\nexample.add(a: int, b: float)\nAdd an integer and a float\n\nParameters\n\na : int\n\nfirst number to add\n\nb : float\n\nthe second number to add\n\n\n\n\nReturns\n\n : float\n\nSum of both parameters\n\n\n\n\nExamples\n\nprint(add(3, 0.14))\n\n3.14",
+    "crumbs": [
+      "API",
+      "Some functions",
+      "example"
+    ]
+  }
+]
