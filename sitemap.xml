@@ -2,18 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://DOH-PXC5303.github.io/test/index.html</loc>
-    <lastmod>2025-08-26T14:47:45.437Z</lastmod>
+    <lastmod>2025-08-26T15:03:34.648Z</lastmod>
   </url>
   <url>
-    <loc>https://DOH-PXC5303.github.io/test/reference/src.html</loc>
-    <lastmod>2025-08-26T14:48:04.984Z</lastmod>
+    <loc>https://DOH-PXC5303.github.io/test/reference/example_two.html</loc>
+    <lastmod>2025-08-26T15:03:47.165Z</lastmod>
   </url>
   <url>
     <loc>https://DOH-PXC5303.github.io/test/process.html</loc>
-    <lastmod>2025-08-26T14:47:45.437Z</lastmod>
+    <lastmod>2025-08-26T15:03:34.648Z</lastmod>
+  </url>
+  <url>
+    <loc>https://DOH-PXC5303.github.io/test/reference/example.html</loc>
+    <lastmod>2025-08-26T15:03:47.155Z</lastmod>
   </url>
   <url>
     <loc>https://DOH-PXC5303.github.io/test/reference/index.html</loc>
-    <lastmod>2025-08-26T14:48:04.973Z</lastmod>
+    <lastmod>2025-08-26T15:03:47.136Z</lastmod>
   </url>
 </urlset>
