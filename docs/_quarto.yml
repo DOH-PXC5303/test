@@ -39,11 +39,12 @@ quartodoc:
   sections:
     - title: Some functions
       desc: Functions to inspect docstrings.
-      # package: src
+      package: src
       contents:
         # the functions being documented in the package.
         # you can refer to anything: class methods, modules, etc..
-        - src
+        - example
+        - example_two
 
 website:
   # Add your project title here:
