@@ -7,37 +7,6 @@
     "text": "This is a Quarto page"
   },
   {
-    "objectID": "reference/example_two.html",
-    "href": "reference/example_two.html",
-    "title": "example_two",
-    "section": "",
-    "text": "example_two",
-    "crumbs": [
-      "API",
-      "Some functions",
-      "example_two"
-    ]
-  },
-  {
-    "objectID": "reference/example_two.html#functions",
-    "href": "reference/example_two.html#functions",
-    "title": "example_two",
-    "section": "Functions",
-    "text": "Functions\n\n\n\nName\nDescription\n\n\n\n\nchange_sign\nAdd an integer and a float and change the sign\n\n\nsubtract\nAdd an integer and a float\n\n\n\n\nchange_sign\nexample_two.change_sign(a: int, b: float)\nAdd an integer and a float and change the sign\n\nParameters\n\na : int\n\nfirst number to add\n\nb : float\n\nthe second number to add\n\n\n\n\nReturns\n\n : float\n\nSum of both parameters with results sign changed\n\n\n\n\nExamples\n\nprint(change_sign(3, 0.14))\n\n-3.14\n\n\n\n\n\nsubtract\nexample_two.subtract(a: int, b: float)\nAdd an integer and a float\n\nParameters\n\na : int\n\nfirst number to sub\n\nb : float\n\nthe second number to sub\n\n\n\n\nReturns\n\n : float\n\nDifference of numbers\n\n\n\n\nExamples\n\nprint(subtract(3, 0.14))\n\n2.86",
-    "crumbs": [
-      "API",
-      "Some functions",
-      "example_two"
-    ]
-  },
-  {
-    "objectID": "process.html",
-    "href": "process.html",
-    "title": "My project",
-    "section": "",
-    "text": "[Temp example file]"
-  },
-  {
     "objectID": "reference/example.html",
     "href": "reference/example.html",
     "title": "example",
@@ -62,11 +31,18 @@
     ]
   },
   {
+    "objectID": "process.html",
+    "href": "process.html",
+    "title": "My project",
+    "section": "",
+    "text": "[Temp example file]"
+  },
+  {
     "objectID": "reference/index.html",
     "href": "reference/index.html",
     "title": "Function reference",
     "section": "",
-    "text": "Functions to inspect docstrings.\n\n\n\nexample\n\n\n\nexample_two",
+    "text": "Functions to inspect docstrings.\n\n\n\nexample",
     "crumbs": [
       "API",
       "Function reference"
@@ -77,7 +53,7 @@
     "href": "reference/index.html#some-functions",
     "title": "Function reference",
     "section": "",
-    "text": "Functions to inspect docstrings.\n\n\n\nexample\n\n\n\nexample_two",
+    "text": "Functions to inspect docstrings.\n\n\n\nexample",
     "crumbs": [
       "API",
       "Function reference"
