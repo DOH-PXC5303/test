@@ -26,7 +26,7 @@ metadata-files:
 quartodoc:
   # the name used to import the package you want to create reference docs for
   package: null
-  source_dir: ../src
+  source_dir: ../
   renderer:
     style: markdown
     table_style: description-list
@@ -43,7 +43,7 @@ quartodoc:
       contents:
         # the functions being documented in the package.
         # you can refer to anything: class methods, modules, etc..
-        - example
+        - src
 
 website:
   # Add your project title here:
