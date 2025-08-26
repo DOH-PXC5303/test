@@ -37,10 +37,14 @@ jobs:
       # - name: Re-try installing quartodoc
       #   run: python -m pip install git+https://github.com/machow/quartodoc.git
       - name: Build Quartodoc API docs
-        run: quartodoc build --config docs/_quarto.yml
+        run: |
+          source .venv/bin/activate
+          quartodoc build --config docs/_quarto.yml
 
       - name: Render Quarto site
-        run: quarto render docs/
+        run: |
+          source .venv/bin/activate
+          quarto render docs/
 
       - name: Publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
