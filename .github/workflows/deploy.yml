@@ -30,9 +30,12 @@ jobs:
 
       - name: Install the project
         run: uv sync --locked --all-extras --dev
+
+      - name: Activate the virtual environment
+        run: source .venv/bin/activate
       
-      - name: Re-try installing quartodoc
-        run: python -m pip install git+https://github.com/machow/quartodoc.git
+      # - name: Re-try installing quartodoc
+      #   run: python -m pip install git+https://github.com/machow/quartodoc.git
       - name: Build Quartodoc API docs
         run: quartodoc build --config docs/_quarto.yml
 
