@@ -14,7 +14,6 @@ wadoh-raccoon = { git = "https://github.com/NW-PaGe/wadoh_raccoon.git" }
 
 [dependency-groups]
 dev = [
-    "nbformat>=5.10.4",
     "quarto>=0.1.0",
     "quartodoc>=0.11.1",
 ]
